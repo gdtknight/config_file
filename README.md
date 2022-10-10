@@ -6,9 +6,17 @@
 
 ### 설정 순서
 #### 1. Swapfile 설정
- 'YouCompleteMe' 플러그인 설정 중에 메모리 부족으로 인한 Compile 중단 현상이 발생한 적이 있었다. <br>
- 해당 문제를 해결하기 위해 [c++: internal compiler error (메모리 에러)](https://m.blog.naver.com/jungspeedy/222036268371) 내용을 참고하여 설정하였더니 더이상 중단되지 않았다. <br>
- 대부분의 패키지들은 apt를 통해 관리가 가능하지만 간혹 Source를 직접 빌드해야 하는 경우가 발생하는데, 메모리 문제를 사전에 방지할 수 있어서 가장 먼저 설정한다. <br>
+```console
+user@hostname ~$ sudo swapoff -a
+user@hostname ~$ sudo dd if=/dev/zero of=/swapfile bs=1M count=2000
+user@hostname ~$ sudo mkswap /swapfile
+user@hostname ~$ sudo chmod 0600 /swapfile
+user@hostname ~$ sudo swapon /swapfile
+user@hostname ~$ 
+```
+ 'YouCompleteMe' 플러그인 설정 중에 메모리 부족으로 인한 Compile 중단 현상이 발생한 적이 있었다. <br/>
+ 해당 문제를 해결하기 위해 [c++: internal compiler error (메모리 에러)](https://m.blog.naver.com/jungspeedy/222036268371) 내용을 참고하여 설정하였더니 더이상 중단되지 않았다. <br/>
+ 대부분의 패키지들은 apt를 통해 관리가 가능하지만 간혹 Source를 직접 빌드해야 하는 경우가 발생하는데, 메모리 문제를 사전에 방지할 수 있어서 가장 먼저 설정한다. <br/>
 
 #### 2. Neovim 설치
  [Neovim PPA team](https://launchpad.net/~neovim-ppa/+archive/ubuntu/stable) 내용을 참고하여 설치한다. <br>
