@@ -149,10 +149,11 @@ local config = {
         },
       },
       format = {
-        enabled = false,
-        -- settings = {
-        --   profile = "asdf"
-        -- }
+        enabled = true,
+        settings = {
+          url = vim.fn.glob(home .. "/.config/lvim/java/intellij-java-google-style.xml"),
+          profile = "GoogleStyle",
+        },
       },
     },
     signatureHelp = { enabled = true },
