@@ -11,7 +11,7 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "onedarker"
+lvim.colorscheme = "tokyonight-night"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -23,6 +23,7 @@ lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 lvim.keys.term_mode["jk"] = "<C-\\><C-n>"
 lvim.keys.visual_mode["p"] = '"_dP'
+lvim.keys.normal_mode["<F6>"] = ":SymbolsOutline<CR>"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -165,24 +166,18 @@ vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright", "
 
 -- Additional Plugins
 lvim.plugins = {
+  { "folke/tokyonight.nvim" },
   { "mfussenegger/nvim-jdtls" },
   { "rcarriga/nvim-dap-ui" },
+  { "simrat39/symbols-outline.nvim" },
   { "norcalli/nvim-colorizer.lua" },
-  -- { "ap/vim-css-color" },
-  -- { "KabbAmine/vCoolor.vim" },
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   cmd = "colorscheme tokyonight-night<CR>"
-  -- },
-  {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-  },
+  { "folke/trouble.nvim", cmd = "TroubleToggle" },
 }
 
 require("colorizer").setup()
 -- require("dapui").setup()
 require("dap-ui")
+require("symbols-outline").setup()
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
