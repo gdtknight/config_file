@@ -9,7 +9,7 @@ if not status_cmp_ok then
   return
 end
 capabilities.textDocument.completion.completionItem.snippetSupport = false
-capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 local status, jdtls = pcall(require, "jdtls")
 if not status then
@@ -40,8 +40,8 @@ extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
--- local workspace_dir = WORKSPACE_PATH .. project_name
-local workspace_dir = home .. "/.cache/jdtls/cached_data/" .. project_name
+local workspace_dir = WORKSPACE_PATH .. project_name
+-- local workspace_dir = home .. "/.cache/jdtls/cached_data/" .. project_name
 
 -- TODO: Testing
 

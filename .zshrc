@@ -120,6 +120,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+source ~/lscolors.sh
 
 # vi ~/.zshrc
 export PYENV_ROOT="$HOME/.pyenv"
